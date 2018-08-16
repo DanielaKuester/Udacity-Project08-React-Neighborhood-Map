@@ -64,7 +64,7 @@ class Map extends Component {
             .map((location) => (
                 // create the popup
                 location.popup = new mapboxgl.Popup({ offset: 40 })
-                .setText('Hello! I am a friendly poppy puppy popcorn popup.'),
+                .setText(location.name),
 
                 // create the marker
                 location.marker = new mapboxgl.Marker({color: this.state.color, className: 'my-marker', alt: `Marker pointing to ${this.props.name}`})
