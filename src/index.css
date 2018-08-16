@@ -10,3 +10,8 @@ body {
   bottom: 0;
   width: 100%;
 }
+
+.mapboxgl-marker:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
