@@ -41,9 +41,10 @@ class Map extends Component {
                 coordinates: [2.331667, 48.871944]
             }
           ],
-        markerColor: "Pink-Icon",
+        markers: [],
+        color: "blue",
         isClicked: false,
-        visibility: "hidden",
+        visibility: "hidden"
     }
 
     componentDidMount() {
@@ -54,6 +55,23 @@ class Map extends Component {
             center: [2.351667, 48.856667],
             zoom: 12
         });
+
+        let popup = null;
+        let marker = null;
+
+        //make markers and popups
+        this.state.locations
+            .map((location) => (
+                // create the popup
+                location.popup = new mapboxgl.Popup({ offset: 40 })
+                .setText('Hello! I am a friendly poppy puppy popcorn popup.'),
+
+                // create the marker
+                location.marker = new mapboxgl.Marker({color: this.state.color, className: 'my-marker'})
+                .setLngLat(location.coordinates)
+                .setPopup(location.popup) // sets a popup on this marker
+                .addTo(this.map)
+            ))
     }
 
 
