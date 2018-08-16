@@ -48,6 +48,8 @@ class Map extends Component {
     }
 
     componentDidMount() {
+
+        // First initialisation of the map
         mapboxgl.accessToken = 'pk.eyJ1IjoiZGFuaWVsYS1rdWVzdGVyIiwiYSI6ImNqam9jdjF1YTAxczQzcG9na3JrZmh2bnkifQ.zMFUT-fI5tsviUOPZsJxog';
         this.map = new mapboxgl.Map({
             container: 'map',
@@ -56,10 +58,8 @@ class Map extends Component {
             zoom: 12
         });
 
-        let popup = null;
-        let marker = null;
 
-        //make markers and popups
+        // Create markers and popups from the locations array
         this.state.locations
             .map((location) => (
                 // create the popup
@@ -67,7 +67,7 @@ class Map extends Component {
                 .setText('Hello! I am a friendly poppy puppy popcorn popup.'),
 
                 // create the marker
-                location.marker = new mapboxgl.Marker({color: this.state.color, className: 'my-marker'})
+                location.marker = new mapboxgl.Marker({color: this.state.color, className: 'my-marker', alt: `Marker pointing to ${this.props.name}`})
                 .setLngLat(location.coordinates)
                 .setPopup(location.popup) // sets a popup on this marker
                 .addTo(this.map)
@@ -77,7 +77,7 @@ class Map extends Component {
 
     render() {
         return (
-            <div id="map" class="my-map">
+            <div id="map" className="my-map">
                 {/* Initialises the map here*/}
             </div>
         );
