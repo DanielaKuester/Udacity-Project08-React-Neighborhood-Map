@@ -7,11 +7,10 @@ body {
 
 #map {
   position: absolute;
-  top: 0;
+  top: 0%;
   bottom: 0;
-  width: 100vw;
-  align-self: right;
-  margin-left: 300px;
+  width: 84%;
+  margin-left: 16%;
   margin-right: 0;
 }
 
@@ -28,6 +27,6 @@ body {
 
 .sidebar {
   position: absolute;
-  width: 30vw;
+  width: 16%;
   background-color: cadetblue;
 }

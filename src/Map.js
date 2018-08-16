@@ -44,7 +44,11 @@ class Map extends Component {
         markers: [],
         color: "blue",
         isClicked: false,
-        visibility: "hidden"
+        visibility: "hidden",
+        handleClick(e) {
+            e.preventDefault();
+            console.log('The link was clicked.');
+          }
     }
 
     componentDidMount() {
@@ -85,7 +89,7 @@ class Map extends Component {
                         {
                             this.state.locations
                                 .map((location) => (
-                                    <li>{location.name}</li>
+                                    <li key={location.index} className="li" onClick={this.state.handleClick} >{location.name}</li>
                                 ))
                         }
                     </ul>
