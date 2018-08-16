@@ -79,8 +79,20 @@ class Map extends Component {
 
     render() {
         return (
-            <div id="map" className="my-map">
-                {/* Initialises the map here*/}
+            <div className="container">
+                <aside className="sidebar">
+                    <ul className="location-list">
+                        {
+                            this.state.locations
+                                .map((location) => (
+                                    <li>{location.name}</li>
+                                ))
+                        }
+                    </ul>
+                </aside>
+                <div id="map" className="my-map">
+                    {/* Initialises the map here*/}
+                </div>
             </div>
         );
     }
