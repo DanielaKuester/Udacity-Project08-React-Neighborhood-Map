@@ -58,6 +58,8 @@ class Map extends Component {
             zoom: 12
         });
 
+        // Add zoom and rotation controls to the map.
+        this.map.addControl(new mapboxgl.NavigationControl());
 
         // Create markers and popups from the locations array
         this.state.locations
