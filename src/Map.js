@@ -47,7 +47,7 @@ class Map extends Component {
         visibility: "hidden",
         handleClick(e) {
             e.preventDefault();
-            console.log('The link was clicked.');
+            console.log(`${e.target.className}`);
           }
     }
 
@@ -89,7 +89,7 @@ class Map extends Component {
                         {
                             this.state.locations
                                 .map((location) => (
-                                    <li key={location.index} className="li" onClick={this.state.handleClick} >{location.name}</li>
+                                    <li key={location.index} className={`li ${location.name}`} onClick={this.state.handleClick} >{location.name}</li>
                                 ))
                         }
                     </ul>
