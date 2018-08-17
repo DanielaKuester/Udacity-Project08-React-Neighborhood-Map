@@ -90,6 +90,21 @@ class Map extends Component {
         return (
             <div className="container">
                 <aside className="sidebar">
+                    <div className="dropdown-menu">
+                        <select
+                            value="seeInfo"
+                            onChange={(event) => (
+                                console.log(event.target.value)
+                            )}
+                        >
+                            <option value="seeInfo" disabled>See info about ...</option>
+                            <option value="Notre Dame">Notre Dame de Paris</option>
+                            <option value="Louvre">the Louvre</option>
+                            <option value="Eiffel Tower">the Eiffel Tower</option>
+                            <option value="Arc de Triomphe">the Arc de Triomphe</option>
+                            <option value="Opéra Garnier">the Opéra Garnier</option>
+                        </select>
+                    </div>
                     <ul className="location-list">
                         {
                             this.state.locations
