@@ -73,6 +73,7 @@ class Map extends Component {
         // Create markers and popups from the locations array
         this.state.locations
             .map((location) => (
+
                 // create the popup
                 location.popup = new mapboxgl.Popup({ offset: 40 })
                 .setHTML(`<h1>${location.name}</h1>`),
@@ -82,7 +83,8 @@ class Map extends Component {
                 .setLngLat(location.coordinates)
                 .setPopup(location.popup) // sets a popup on this marker
                 .addTo(this.map)
-            ))
+            )
+        )
     }
 
 
@@ -93,16 +95,20 @@ class Map extends Component {
                     <div className="dropdown-menu">
                         <select
                             value="seeInfo"
-                            onChange={(event) => (
-                                console.log(event.target.value)
-                            )}
                         >
                             <option value="seeInfo" disabled>See info about ...</option>
-                            <option value="Notre Dame">Notre Dame de Paris</option>
-                            <option value="Louvre">the Louvre</option>
-                            <option value="Eiffel Tower">the Eiffel Tower</option>
-                            <option value="Arc de Triomphe">the Arc de Triomphe</option>
-                            <option value="Opéra Garnier">the Opéra Garnier</option>
+                            {
+                            this.state.locations
+                                .map((location) => (
+                                    <option
+                                        value={location.name}
+                                        key={location.index}
+                                        data-index={location.index}
+                                        className={`selection-option ${location.name}`}
+                                    >{location.name}
+                                    </option>
+                                ))
+                            }
                         </select>
                     </div>
                     <ul className="location-list">
