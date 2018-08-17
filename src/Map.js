@@ -89,7 +89,12 @@ class Map extends Component {
                         {
                             this.state.locations
                                 .map((location) => (
-                                    <li key={location.index} className={`li ${location.name}`} onClick={this.state.handleClick} >{location.name}</li>
+                                    <button
+                                        type="button"
+                                        data-index={location.index}
+                                        className={`button ${location.name}`}
+                                    >{location.name}
+                                    </button>
                                 ))
                         }
                     </ul>
