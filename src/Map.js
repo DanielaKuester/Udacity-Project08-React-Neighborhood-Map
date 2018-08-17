@@ -52,7 +52,7 @@ class Map extends Component {
         console.log(e.target);
         const index = e.target.dataset.index;
         console.log(e.target.dataset.index);
-        this.state.locations[index-1].marker;
+        this.state.locations[index-1].marker.togglePopup()
         console.log(this.state.locations[index-1].marker);
       }
 
