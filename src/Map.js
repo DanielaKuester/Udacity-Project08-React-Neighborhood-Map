@@ -44,12 +44,13 @@ class Map extends Component {
         markers: [],
         color: "blue",
         isClicked: false,
-        visibility: "hidden",
-        handleClick(e) {
-            e.preventDefault();
-            console.log(`${e.target.className}`);
-          }
+        visibility: "hidden"
     }
+
+    handleClick(e) {
+        e.preventDefault();
+        console.log(`The button of ${e.target.name} was clicked`);
+      }
 
     componentDidMount() {
 
@@ -91,8 +92,10 @@ class Map extends Component {
                                 .map((location) => (
                                     <button
                                         type="button"
+                                        key={location.index}
                                         data-index={location.index}
                                         className={`button ${location.name}`}
+                                        onClick={this.handleClick.bind(this)}
                                     >{location.name}
                                     </button>
                                 ))
