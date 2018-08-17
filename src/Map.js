@@ -49,7 +49,11 @@ class Map extends Component {
 
     handleClick(e) {
         e.preventDefault();
-        console.log(`The button of ${e.target.name} was clicked`);
+        console.log(e.target);
+        const index = e.target.dataset.index;
+        console.log(e.target.dataset.index);
+        this.state.locations[index-1].marker;
+        console.log(this.state.locations[index-1].marker);
       }
 
     componentDidMount() {
